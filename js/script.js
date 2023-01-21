@@ -1,49 +1,73 @@
-const mario = document.querySelector(".mario");
-const quadro_1 = document.querySelector(".quadro-1");
-const cloud = document.querySelector(".cloud");
+const palito = document.querySelector(".palito");
+const tam = document.querySelector(".game-board");
 
+//const posiPalito = palito.offsetLeft;
 
-const loop = setInterval(() => {
-  const cloudPosition = cloud.offsetLeft;
+const tamanho = +window.getComputedStyle(tam).width.replace("px", "");
 
-  const marioPosition = +window
-    .getComputedStyle(mario)
-    .bottom.replace("px", "");
+var posY;
+var palit;
+var tmp;
+var x = 0;
 
-  if (pipePosition <= 120 && pipePosition > 0 && marioPosition <= 80) {
-    document.getElementById("btn").style.display = "inline";
-    pipe.style.animation = "none";
-    pipe.style.left = `${pipePosition}px`;
+function inicio() {
+  posY = 0;
+  document.addEventListener("keydown", (e) => {
+    if (e.code === "ArrowLeft") {
+    } else if (e.code === "ArrowUp") {
+    } else if (e.code === "ArrowRight") {
+      if (x == 0) {
+        x = 1;
+        palito.src = "./img/palito-gif-3.gif";
+      }
+      posY += 20;
+      console.log("posY " + posY);
+      x;
+    }
+  });
 
-    cloud.style.animation = "none";
-    cloud.style.left = `${cloudPosition}px`;
+  document.addEventListener("keyup", (e) => {
+    if (x == 1) {
+      x = 0;
+    }
+    palito.src = "./img/palito-gif-2.gif";
+  });
 
-    mario.style.animation = "none";
-    mario.style.bottom = `${marioPosition}px`;
+  //document.addEventListener("keyup", teclaUp(e));
+  tmp = setInterval(enterFrame, 20);
+}
 
-    mario.src = "./img/game-over.png";
+function enterFrame() {
+  palito.style.left = `${posY}px`;
+}
 
-    clearInterval(loop);
-  }
-  mario.style.marginLeft = "50px";
-}, 10);
+window.addEventListener("load", () => {
+  inicio();
+  enterFrame();
+});
+
+/*
+const loop = setInterval(() => {}, 10);
+
+var dirY = 0;
 
 document.addEventListener("keydown", (e) => {
   if (e.code === "ArrowLeft") {
-    let position = +window.getComputedStyle(quadro_1).right.replace("px", "");
-   
-    position -= 5;
-    quadro_1.style.right = `${position}px`;
   } else if (e.code === "ArrowUp") {
-    alert("set U");
   } else if (e.code === "ArrowRight") {
-    let position = +window.getComputedStyle(quadro_1).right.replace("px", "");
-   
-    position += 5;
-    quadro_1.style.right = `${position}px`;
-  } else if (e.code === "ArrowDown") {
-    alert("set D");
+    palito.src = "./img/palito-gif-3.gif";
+
+    console.log("-> " + posiPalito);
   }
 });
 
-document.addEventListener("keyup", (e) => {});
+function teclaDw(event) {
+  var tecla = event.keyCode;
+  if (tecla == 37) {
+  }
+}
+
+document.addEventListener("keyup", (e) => {
+  palito.src = "./img/palito-gif-2.gif";
+});
+*/

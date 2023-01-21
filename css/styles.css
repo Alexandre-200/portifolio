@@ -5,29 +5,85 @@
 }
 
 .game-board {
-  width: 80%;
-  height: 500px;
-  border-bottom: 15px solid rgb(8, 99, 0);
-  margin: 0 auto;
+  width: 400%;
+  height: 100%;
+
   position: relative;
   overflow: hidden;
-  background: linear-gradient(#87ceeb, #e0f6ff);
+
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 
-.quadros-container {
+.ceu {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  background-color: purple;
 }
 
 .quadro-1 {
   position: absolute;
-  width: 150px;
+  width: 200px;
   height: 200px;
-  background-color: red;
-  margin-top: 39px;
-  right: -10%;
+  background-color: white;
+  border: 5px solid #000;
+  bottom: 0;
+  margin-left: 20%;
+}
+
+.quadro-2 {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  border: 5px solid #000;
+  bottom: 0;
+  margin-left: 30%;
+}
+.quadro-3 {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  border: 5px solid #000;
+  bottom: 0;
+  margin-left: 50%;
+}
+.quadro-4 {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  border: 5px solid #000;
+  bottom: 0;
+  margin-left: 70%;
+}
+
+.quadro-5 {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  border: 5px solid #000;
+  bottom: 0;
+  margin-left: 80%;
+}
+
+.chao {
+  display: flex;
+  height: 40vh;
+  background-color: white;
+}
+
+.palito {
+  min-width: 250px;
+  min-height: 250px;
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  margin-right: 0;
 }
 
 .btn-container {
@@ -48,17 +104,9 @@
   margin-top: 50px;
 }
 
-.pipe {
-  position: absolute;
-  bottom: 0;
-  width: 80px;
-  animation: pipe-animation 1.5s infinite linear;
-}
-
-.mario {
-  width: 150px;
-  height: 150px;
-  background-color: black;
+.palito {
+  width: 100px;
+  height: 100px;
   position: absolute;
   bottom: 0;
 }
@@ -67,15 +115,11 @@
   animation: jump 500ms ease-out;
 }
 
-
-
 .cloud {
   width: 550px;
   position: absolute;
   animation: cloud-animation 20s infinite linear;
 }
-
-
 
 @keyframes cloud-animation {
   from {
